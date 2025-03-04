@@ -11,3 +11,5 @@ This was an exercise in AI coding that served two purposes:
 
 ### You can view the project site using this GitHub Pages link 👉 [Digital Dossier](https://thebimsider.github.io/Digital_Dossier/DD/).   
 
+### You can view the project site using this GitHub Pages link 👉 [Digital Dossier V2](https://thebimsider.github.io/Digital_Dossier/DD2/).    
+
