@@ -11,7 +11,7 @@ This was an exercise in AI coding that served two purposes:
 
 ### You can view the all versions of project site using the links below 👇
 
-Version 1 - [Digital Dossier](https://thebimsider.github.io/Digital_Dossier/DD/) - This version allows the user to download a static, pre-made PDF version of the resume or CV that has been uploaded.     
+#### Version 1 - [Digital Dossier](https://thebimsider.github.io/Digital_Dossier/DD/) - This version allows the user to download a static, pre-made PDF version of the resume or CV that has been uploaded.     
 
 Version 2 - [Digital Dossier V2](https://thebimsider.github.io/Digital_Dossier/DD2/) - This version allows the user to download a dynamic version of the resume or CV as a PDF, available in either letter or A4 size.   
 
