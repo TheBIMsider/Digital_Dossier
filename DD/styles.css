@@ -506,11 +506,11 @@ body {
 
 /* Header and Footer styles */
 header.border-b {
-  background-color: var(--primary-light);
+  background-color: var(--secondary);
   border-bottom-color: var(--primary);
 }
 
 footer.border-t {
-  background-color: var(--primary-light);
+  background-color: var(--secondary);
   border-top-color: var(--primary);
 }
