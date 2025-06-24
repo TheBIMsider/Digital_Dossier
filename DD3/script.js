@@ -16,24 +16,24 @@ const SITE_CONFIG = {
   // Employment Status Settings
   showAvailabilityStatus: true,
   isAvailableForWork: true,
-  availabilityMessage: 'Available',
+  availabilityMessage: 'The BIMsider is on the Case!', // the default message when available
   unavailabilityMessage: 'Not Available',
-  
+
   // Status Colors
   availableColor: '#059669',
   unavailableColor: '#64748b',
-  
+
   // Animation Settings
   enableAnimations: true,
-  
+
   // PDF Settings
   pdfFiles: {
     resume: 'Carl_Storms_Resume.pdf',
-    cv: 'Carl_Storms_CV.pdf'
+    cv: 'Carl_Storms_CV.pdf',
   },
-  
+
   // Notification Settings
-  notificationDuration: 5000
+  notificationDuration: 5000,
 };
 
 /**
@@ -49,40 +49,39 @@ const SITE_CONFIG = {
  */
 function downloadPDF(type) {
   console.log('downloadPDF called with type:', type);
-  
+
   const filename = SITE_CONFIG.pdfFiles[type];
-  
+
   if (!filename) {
     console.error('Invalid PDF type:', type);
     showNotification('PDF type not found', 'error');
     return;
   }
-  
+
   console.log('Attempting to download:', filename);
-  
+
   // Show loading state
   showPDFLoading();
-  
+
   try {
     // Create download link
     const link = document.createElement('a');
     link.href = filename;
     link.download = filename;
     link.target = '_blank';
-    
+
     // Trigger download
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    
+
     console.log('Download triggered successfully');
-    
+
     // Show success message
     setTimeout(() => {
       showPDFSuccess();
       hidePDFLoading();
     }, 500);
-    
   } catch (error) {
     console.error('PDF Download Error:', error);
     showPDFError('Failed to download PDF');
@@ -96,7 +95,8 @@ function downloadPDF(type) {
 function showPDFLoading() {
   const button = document.querySelector('.download-btn');
   if (button) {
-    button.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Preparing...</span>';
+    button.innerHTML =
+      '<i class="fas fa-spinner fa-spin"></i><span>Preparing...</span>';
     button.disabled = true;
     button.classList.add('loading');
   }
@@ -108,7 +108,8 @@ function showPDFLoading() {
 function hidePDFLoading() {
   const button = document.querySelector('.download-btn');
   if (button) {
-    button.innerHTML = '<i class="fas fa-download"></i><span>Download PDF</span>';
+    button.innerHTML =
+      '<i class="fas fa-download"></i><span>Download PDF</span>';
     button.disabled = false;
     button.classList.remove('loading');
   }
@@ -160,29 +161,29 @@ function showNotification(message, type = 'info') {
     transition: transform 0.3s ease-out;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   `;
-  
+
   // Set background color based on type
   const colors = {
     success: '#059669',
     error: '#dc2626',
     warning: '#d97706',
-    info: '#2563eb'
+    info: '#2563eb',
   };
   notification.style.backgroundColor = colors[type] || colors.info;
-  
+
   // Add to page
   document.body.appendChild(notification);
-  
+
   // Slide in
   setTimeout(() => {
     notification.style.transform = 'translateX(0)';
   }, 100);
-  
+
   // Auto remove
   setTimeout(() => {
     removeNotification(notification);
   }, SITE_CONFIG.notificationDuration);
-  
+
   // Remove on click
   notification.addEventListener('click', () => {
     removeNotification(notification);
@@ -219,29 +220,28 @@ window.showNotification = showNotification;
  * ========================================================================
  */
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   console.log('Initializing Carl Storms Digital Dossier...');
-  
+
   try {
     // Set current year
     setCurrentYear();
-    
+
     // Set active navigation
     setActiveNavigation();
-    
+
     // Initialize navigation
     initializeNavigation();
-    
+
     // Initialize availability status
     initializeAvailabilityStatus();
-    
+
     // Initialize animations if enabled
     if (SITE_CONFIG.enableAnimations) {
       initializeAnimations();
     }
-    
+
     console.log('Site initialized successfully');
-    
   } catch (error) {
     console.error('Initialization error:', error);
   }
@@ -260,8 +260,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function setCurrentYear() {
   const yearElements = document.querySelectorAll('#current-year');
   const currentYear = new Date().getFullYear();
-  
-  yearElements.forEach(element => {
+
+  yearElements.forEach((element) => {
     if (element) {
       element.textContent = currentYear;
     }
@@ -275,10 +275,10 @@ function setActiveNavigation() {
   const currentPage = getCurrentPage();
   const navLinks = document.querySelectorAll('.nav-link');
 
-  navLinks.forEach(link => {
+  navLinks.forEach((link) => {
     const linkPage = link.getAttribute('href') || '';
     link.classList.remove('active');
-    
+
     if (isCurrentPage(linkPage, currentPage)) {
       link.classList.add('active');
     }
@@ -297,10 +297,12 @@ function getCurrentPage() {
  * Checks if link matches current page
  */
 function isCurrentPage(linkPage, currentPage) {
-  return linkPage === currentPage || 
-         (currentPage === '' && linkPage === 'index.html') ||
-         (currentPage === 'index.html' && linkPage === '') ||
-         (currentPage === '/' && linkPage === 'index.html');
+  return (
+    linkPage === currentPage ||
+    (currentPage === '' && linkPage === 'index.html') ||
+    (currentPage === 'index.html' && linkPage === '') ||
+    (currentPage === '/' && linkPage === 'index.html')
+  );
 }
 
 /**
@@ -325,23 +327,26 @@ function initializeNavigation() {
 function setupMobileMenu() {
   const mobileToggle = document.querySelector('.mobile-menu-toggle');
   const navMenu = document.querySelector('.nav-menu');
-  
+
   if (!mobileToggle || !navMenu) return;
-  
+
   // Toggle menu on button click
-  mobileToggle.addEventListener('click', function() {
+  mobileToggle.addEventListener('click', function () {
     toggleMobileMenu(navMenu, mobileToggle);
   });
-  
+
   // Close menu when clicking outside
-  document.addEventListener('click', function(event) {
-    if (!mobileToggle.contains(event.target) && !navMenu.contains(event.target)) {
+  document.addEventListener('click', function (event) {
+    if (
+      !mobileToggle.contains(event.target) &&
+      !navMenu.contains(event.target)
+    ) {
       closeMobileMenu(navMenu, mobileToggle);
     }
   });
-  
+
   // Close menu on Escape key
-  document.addEventListener('keydown', function(event) {
+  document.addEventListener('keydown', function (event) {
     if (event.key === 'Escape') {
       closeMobileMenu(navMenu, mobileToggle);
     }
@@ -353,7 +358,7 @@ function setupMobileMenu() {
  */
 function toggleMobileMenu(navMenu, mobileToggle) {
   const isOpen = navMenu.classList.contains('mobile-open');
-  
+
   if (isOpen) {
     closeMobileMenu(navMenu, mobileToggle);
   } else {
@@ -386,15 +391,15 @@ function closeMobileMenu(navMenu, mobileToggle) {
  */
 function enhanceNavigationInteractions() {
   const navLinks = document.querySelectorAll('.nav-link');
-  
-  navLinks.forEach(link => {
-    link.addEventListener('mouseenter', function() {
+
+  navLinks.forEach((link) => {
+    link.addEventListener('mouseenter', function () {
       if (!link.classList.contains('active')) {
         link.style.transform = 'translateY(-1px)';
       }
     });
-    
-    link.addEventListener('mouseleave', function() {
+
+    link.addEventListener('mouseleave', function () {
       if (!link.classList.contains('active')) {
         link.style.transform = '';
       }
@@ -407,13 +412,13 @@ function enhanceNavigationInteractions() {
  */
 function handleNavigationResponsive() {
   let resizeTimer;
-  
-  window.addEventListener('resize', function() {
+
+  window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
+    resizeTimer = setTimeout(function () {
       const mobileToggle = document.querySelector('.mobile-menu-toggle');
       const navMenu = document.querySelector('.nav-menu');
-      
+
       if (window.innerWidth > 768 && navMenu && mobileToggle) {
         closeMobileMenu(navMenu, mobileToggle);
       }
@@ -433,14 +438,14 @@ function handleNavigationResponsive() {
  */
 function initializeAvailabilityStatus() {
   const statusElement = document.querySelector('.profile-status');
-  
+
   if (!statusElement) return;
-  
+
   if (!SITE_CONFIG.showAvailabilityStatus) {
     statusElement.style.display = 'none';
     return;
   }
-  
+
   updateAvailabilityStatus(statusElement);
 }
 
@@ -450,7 +455,7 @@ function initializeAvailabilityStatus() {
 function updateAvailabilityStatus(statusElement) {
   const statusText = statusElement.querySelector('span');
   const statusIcon = statusElement.querySelector('i');
-  
+
   if (SITE_CONFIG.isAvailableForWork) {
     if (statusText) statusText.textContent = SITE_CONFIG.availabilityMessage;
     if (statusIcon) statusIcon.style.color = SITE_CONFIG.availableColor;
@@ -478,7 +483,7 @@ function initializeAnimations() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     return;
   }
-  
+
   initializeScrollAnimations();
   initializeLoadingAnimations();
 }
@@ -489,23 +494,23 @@ function initializeAnimations() {
 function initializeScrollAnimations() {
   const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    rootMargin: '0px 0px -50px 0px',
   };
-  
-  const observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
+
+  const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
       if (entry.isIntersecting) {
         entry.target.classList.add('animate-in');
         observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
-  
+
   const animateElements = document.querySelectorAll(
     '.expertise-card, .stat-card, .experience-item, .content-card'
   );
-  
-  animateElements.forEach(function(element) {
+
+  animateElements.forEach(function (element) {
     element.classList.add('animate-on-scroll');
     observer.observe(element);
   });
@@ -516,12 +521,12 @@ function initializeScrollAnimations() {
  */
 function initializeLoadingAnimations() {
   const heroElements = document.querySelectorAll('.hero-text > *');
-  
-  heroElements.forEach(function(element, index) {
+
+  heroElements.forEach(function (element, index) {
     element.style.opacity = '0';
     element.style.transform = 'translateY(20px)';
-    
-    setTimeout(function() {
+
+    setTimeout(function () {
       element.style.transition = 'all 0.6s ease-out';
       element.style.opacity = '1';
       element.style.transform = 'translateY(0)';
@@ -536,12 +541,12 @@ function initializeLoadingAnimations() {
  * ========================================================================
  */
 
-window.addEventListener('error', function(event) {
+window.addEventListener('error', function (event) {
   console.error('Global Error:', event.error);
   showNotification('An error occurred. Please refresh the page.', 'error');
 });
 
-window.addEventListener('unhandledrejection', function(event) {
+window.addEventListener('unhandledrejection', function (event) {
   console.error('Unhandled Promise Rejection:', event.reason);
   showNotification('A background process failed.', 'error');
 });
@@ -554,7 +559,7 @@ window.addEventListener('unhandledrejection', function(event) {
  */
 
 // Test notifications
-window.testNotifications = function() {
+window.testNotifications = function () {
   showNotification('Success message', 'success');
   setTimeout(() => showNotification('Error message', 'error'), 500);
   setTimeout(() => showNotification('Warning message', 'warning'), 1000);
@@ -562,7 +567,7 @@ window.testNotifications = function() {
 };
 
 // Debug configuration
-SITE_CONFIG.debug = function() {
+SITE_CONFIG.debug = function () {
   console.group('Site Configuration');
   console.log('Availability Status:', this.showAvailabilityStatus);
   console.log('Is Available:', this.isAvailableForWork);
