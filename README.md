@@ -2,9 +2,9 @@
 ![Digital Dossier](https://github.com/user-attachments/assets/fda155dd-24ab-43d2-950e-8cb69a1c41be)
 *Image created by AI using [NightCafe](https://creator.nightcafe.studio/)*
 
-Digital Dossier is an AI-enhanced personal website that showcases my resume and CV, while offering an easy-to-update platform for ongoing professional developemt.
+Digital Dossier is an AI-enhanced personal website that showcases my resume and CV, while offering an easy-to-update platform for ongoing professional development.
 
-This is an ongoing an exercise in [Vibe Coding](https://en.wikipedia.org/wiki/Vibe_coding) (using AI to code) that serves two purposes:
+This is an ongoing exercise in [Vibe Coding](https://en.wikipedia.org/wiki/Vibe_coding) (using AI to code) that serves two purposes:
 
 - Have a place to keep a digital copy of my resume and CV that can be easily updated and shared.
 - Explore coding with AI assistance, in this case using tools like [Claude](https://claude.ai/), [v0 by Vercel](https://v0.dev/) and [Cursor - The AI Code Editor](https://www.cursor.com/).
