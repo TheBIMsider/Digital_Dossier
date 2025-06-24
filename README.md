@@ -2,18 +2,18 @@
 ![Digital Dossier](https://github.com/user-attachments/assets/fda155dd-24ab-43d2-950e-8cb69a1c41be)
 *Image created by AI using [NightCafe](https://creator.nightcafe.studio/)*
 
-Digital Dossier is an AI-enhanced personal website that simply showcases my resume and CV, while offering an easy-to-update platform for professional growth and learning.
+Digital Dossier is an AI-enhanced personal website that showcases my resume and CV, while offering an easy-to-update platform for ongoing professional developemt.
 
-This was an exercise in [Vibe Coding](https://en.wikipedia.org/wiki/Vibe_coding) (using AI to code) that served two purposes:
+This is an ongoing an exercise in [Vibe Coding](https://en.wikipedia.org/wiki/Vibe_coding) (using AI to code) that serves two purposes:
 
 - Have a place to keep a digital copy of my resume and CV that can be easily updated and shared.
-- Explore coding with an AI assistance, in this case using tools like [Claude](https://claude.ai/), [v0 by Vercel](https://v0.dev/) and [Cursor - The AI Code Editor](https://www.cursor.com/).
+- Explore coding with AI assistance, in this case using tools like [Claude](https://claude.ai/), [v0 by Vercel](https://v0.dev/) and [Cursor - The AI Code Editor](https://www.cursor.com/).
 
 ### You can view all versions of this project site using the links below 👇 (Most current on top)
 
-Version 3 - [Digital Dossier V3](https://thebimsider.github.io/Digital_Dossier/DD3/) - This version features a more modern and cleaner look for the digital aspects of the site. However, we've reverted to static PDF downloads to simplify the codebase and ensure a more reliable experience when downloading a Resume or CV.  
+Version 3 - [Digital Dossier V3](https://thebimsider.github.io/Digital_Dossier/DD3/) - This version features a more modern and cleaner look for the site's interface. However, we've reverted to static PDF downloads to simplify the codebase and ensure a more reliable experience when downloading a copy of the resume or CV from the site.
 
-Version 2 - [Digital Dossier V2](https://thebimsider.github.io/Digital_Dossier/DD2/) - This version allows the user to download a dynamic version of the resume or CV as a PDF, available in either letter or A4 size.   
+Version 2 - [Digital Dossier V2](https://thebimsider.github.io/Digital_Dossier/DD2/) - This version allows the user to generate and download a copy of the resume or CV as a PDF, available in either letter or A4 size.   
 
-Version 1 - [Digital Dossier](https://thebimsider.github.io/Digital_Dossier/DD/) - This version allows the user to download a static, pre-made PDF version of the resume or CV that has been uploaded.  
+Version 1 - [Digital Dossier](https://thebimsider.github.io/Digital_Dossier/DD/) - This version allows the user to download a static, pre-made PDF copy of the resume or CV from the site.  
 
