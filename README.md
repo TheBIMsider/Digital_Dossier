@@ -11,6 +11,8 @@ This was an exercise in [Vibe Coding](https://en.wikipedia.org/wiki/Vibe_coding)
 
 ### You can view all versions of this project site using the links below 👇 (Most current on top)
 
+Version 3 - [Digital Dossier V3](https://thebimsider.github.io/Digital_Dossier/DD3/) - This version features a more modern and cleaner look for the digital aspects of the site. However, we've reverted to static PDF downloads to simplify the codebase and ensure a more reliable experience when downloading a Resume or CV.  
+
 Version 2 - [Digital Dossier V2](https://thebimsider.github.io/Digital_Dossier/DD2/) - This version allows the user to download a dynamic version of the resume or CV as a PDF, available in either letter or A4 size.   
 
 Version 1 - [Digital Dossier](https://thebimsider.github.io/Digital_Dossier/DD/) - This version allows the user to download a static, pre-made PDF version of the resume or CV that has been uploaded.  
