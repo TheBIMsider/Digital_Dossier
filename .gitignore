@@ -1,4 +1,5 @@
 # Claude Code project files (private -- never commit)
-CLAUDE.md
-context/
-.claude/
+/CLAUDE.md
+/CLAUDE.local.md
+/context/
+/.claude/
